@@ -5,30 +5,22 @@
     ViewBag.Active = "List";
 }
 
-<h2>Index</h2>
+<div class="row">
+	<div class="span6 offset3">
+        <h2>Forms</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            Name
-        </th>
-        <th></th>
-    </tr>
+        <ul>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+            @foreach (var item in Model) {
+            <li>
+                @Html.ActionLink(item.Name, "Details", new { id=item.Id }) (@Html.ActionLink("Edit", "Edit", new { id=item.Id }), @Html.ActionLink("Details", "Details", new { id=item.Id }) )
+            </li>    
+            }
 
-</table>
+        </ul>
+
+    </div>
+</div>
+
+
+
