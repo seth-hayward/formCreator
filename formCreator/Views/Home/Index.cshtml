@@ -1,8 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    ViewBag.Active = "Home";
 }
-
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+ 
+<div class="center hero-unit">
+    <h1>@ViewBag.Message</h1>
+    <h2>Add a custom form today.</h2>
+    @Html.ActionLink("Try it now, for free!", "Create", "Form", null, new { @class = "btn btn-large btn-primary" })
+</div>

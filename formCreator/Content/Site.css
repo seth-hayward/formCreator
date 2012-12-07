@@ -12,14 +12,14 @@ body {
     color: #696969;
 }
 
-a:link {
+/*a:link {
     color: #034af3;
     text-decoration: underline;
 }
 
 a:visited {
     color: #505abc;
-}
+}*/
 
 a:hover {
     color: #1d60ff;
@@ -90,14 +90,14 @@ header, #header {
 }
 
 header h1, #header h1 {
-    font-weight: bold;
+    font-weight: normal;
     padding: 5px 0;
     margin: 0;
-    color: #fff;
+    color: #5c87b2;
     border: none;
     line-height: 2em;
-    font-size: 32px !important;
-    text-shadow: 1px 1px 2px #111;
+    font-size: 20px !important;
+    text-shadow: 1px 1px 1px #111;
 }
 
 #main {
@@ -257,21 +257,21 @@ div#title {
     display: block;
     text-align: right;
     margin: 10px;
-    color: White;
+    color: #555;
 }
-
+ 
 #logindisplay a:link {
-    color: white;
+    color: #555;
     text-decoration: underline;
 }
-
+ 
 #logindisplay a:visited {
-    color: white;
+    color: #555;
     text-decoration: underline;
 }
-
+ 
 #logindisplay a:hover {
-    color: white;
+    color: #555;
     text-decoration: none;
 }
 
