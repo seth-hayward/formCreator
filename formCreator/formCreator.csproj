@@ -161,7 +161,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
