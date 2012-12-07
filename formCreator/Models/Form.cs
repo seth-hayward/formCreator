@@ -10,6 +10,13 @@ namespace formCreator.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public List<Attribute> Attributes { get; set; }
+    }
+
+    public class Attribute
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 
     public class FormDBContext : DbContext
