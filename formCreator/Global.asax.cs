@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
-//using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -40,7 +40,7 @@ namespace formCreator
             var connectionString = ConfigurationManager.ConnectionStrings["appharbor"].ConnectionString;
 
             // Using the SQL server add-on at AppHarbor for the database to begin with
-            Database.DefaultConnectionFactory = new System.Data.Entity.Infrastructure.SqlConnectionFactory(connectionString);
+            Database.DefaultConnectionFactory = new SqlConnectionFactory(connectionString);
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
