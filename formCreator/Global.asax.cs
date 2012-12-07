@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Raven.Client.Document;
+using Raven.Client.Embedded;
 
 namespace formCreator
 {
@@ -14,6 +16,9 @@ namespace formCreator
 
     public class MvcApplication : System.Web.HttpApplication
     {
+
+        public static DocumentStore documentStore { get; set; }
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -40,6 +45,13 @@ namespace formCreator
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            documentStore = new EmbeddableDocumentStore
+            {
+                ConnectionStringName = "RavenDB",
+            };
+            documentStore.Initialize();
+
         }
     }
 }
