@@ -9,7 +9,7 @@ using formCreator.Models;
 
 namespace formCreator.Controllers
 { 
-    public class FormController : Controller
+    public class FormController : BaseController
     {
         private FormDBContext db = new FormDBContext();
 
@@ -18,7 +18,8 @@ namespace formCreator.Controllers
 
         public ViewResult Index()
         {
-            return View(db.Forms.ToList());
+            var forms = RavenSession.Query<Form>().ToList();
+            return View(forms);
         }
 
         //
@@ -46,8 +47,8 @@ namespace formCreator.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Forms.Add(form);
-                db.SaveChanges();
+                RavenSession.Store(form);
+                RavenSession.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
