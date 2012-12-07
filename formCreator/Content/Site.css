@@ -12,63 +12,37 @@ body {
     color: #696969;
 }
 
-/*a:link {
-    color: #034af3;
-    text-decoration: underline;
-}
-
-a:visited {
-    color: #505abc;
-}*/
-
-a:hover {
-    color: #1d60ff;
-    text-decoration: none;
-}
-
-a:active {
-    color: #12eb87;
-}
-
-p, ul {
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
-
-header,
-footer,
-nav,
-section {
-    display: block;
+.row
+{
+    text-align: center;
 }
 
 /* HEADINGS   
 ----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-    font-size: 1.5em;
-    color: #000;
+
+h1, h2 h3, h4, h5, h6 {
+	line-height: 1;
 }
 
 h1 {
-    font-size: 2em;
-    padding-bottom: 0;
-    margin-bottom: 0;
+	font-size: 3em;
+	letter-spacing: -2px;
+	margin-bottom: 30px;
+	text-align: center;
 }
 
 h2 {
-    padding: 0 0 10px 0;
+	font-size: 1.7em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: center;
+	font-weight: normal;
+	color: #67AAE6;
 }
 
-h3 {
-    font-size: 1.2em;
-}
-
-h4 {
-    font-size: 1.1em;
-}
-
-h5, h6 {
-    font-size: 1em;
+p {
+	font-size: 1.1em;
+	line-height: 1.7em;
 }
 
 /* PRIMARY LAYOUT ELEMENTS   

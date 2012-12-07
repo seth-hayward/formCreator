@@ -6,5 +6,7 @@
 <div class="center hero-unit">
     <h1>@ViewBag.Message</h1>
     <h2>Add a custom form today.</h2>
-    @Html.ActionLink("Try it now, for free!", "Create", "Form", null, new { @class = "btn btn-large btn-primary" })
+    <div class="row">
+        @Html.ActionLink("Try it now, for free!", "Create", "Form", null, new { @class = "btn btn-large btn-primary" })
+    </div>
 </div>
