@@ -27,7 +27,7 @@ namespace formCreator.Controllers
 
         public ViewResult Details(int id)
         {
-            Form form = db.Forms.Find(id);
+            Form form = (Form)RavenSession.Query<Form>().Where(f => f.Id == id).First();
             return View(form);
         }
 
@@ -47,6 +47,18 @@ namespace formCreator.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                List<Models.Attribute> attributes = new List<Models.Attribute>();
+                String given_atts = Request["formAttributes"];
+                string[] atts = given_atts.Split(',');
+
+                foreach (string little_att in atts)
+                {
+                    attributes.Add(new Models.Attribute { Name = little_att, Value = little_att });
+                }
+
+                form.Attributes = attributes;
+
                 RavenSession.Store(form);
                 RavenSession.SaveChanges();
                 return RedirectToAction("Index");  

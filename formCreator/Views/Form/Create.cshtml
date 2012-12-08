@@ -19,6 +19,10 @@
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
 
+            @Html.Label("Attributes (type a list seperated by commas)")
+            @Html.TextBox("formAttributes")
+
+
             <p>
                 <input type="submit" value="Add Form" class="btn btn-large btn-primary" />
             </p>
