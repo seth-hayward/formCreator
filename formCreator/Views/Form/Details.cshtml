@@ -12,7 +12,7 @@
         <h3>Form Items</h3>
 
         <ul>
-            @if (Model.Attributes.Count > 0)
+            @if (Model.Attributes == null)
             {
                 foreach (formCreator.Models.Attribute att in Model.Attributes) {
                     <li>@Html.DisplayFor(a => att.Name)</li>
