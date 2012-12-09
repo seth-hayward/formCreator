@@ -4,16 +4,19 @@
     ViewBag.Title = "Details";
 }
 
-    <h2>@Html.DisplayFor(model => model.Name)</h2>
+<div class="row">
+	<div class="span6 offset3">
 
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+
+        <h3>Form Items</h3>
+
+        <ul>
+            @foreach (formCreator.Models.Attribute att in Model.Attributes) {
+            <li>@Html.DisplayFor(a => att.Name)</li>
+            }
+        </ul>
+
     </div>
-
-    <ul>
-        @foreach (formCreator.Models.Attribute att in Model.Attributes) {
-        <li></li>
-        }
-    </ul>
+</div>
 
