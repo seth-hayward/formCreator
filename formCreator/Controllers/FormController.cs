@@ -72,7 +72,7 @@ namespace formCreator.Controllers
  
         public ActionResult Edit(int id)
         {
-            Form form = db.Forms.Find(id);
+            Form form = (Form)RavenSession.Query<Form>().Where(f => f.Id == id).First();
             return View(form);
         }
 
@@ -84,8 +84,11 @@ namespace formCreator.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(form).State = EntityState.Modified;
-                db.SaveChanges();
+
+                Form form_to_edit = (Form)RavenSession.Query<Form>().Where(f => f.Id == form.Id).First();
+                form_to_edit.Name = form.Name;
+                form_to_edit.Attributes = form.Attributes;
+                RavenSession.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(form);
@@ -96,7 +99,7 @@ namespace formCreator.Controllers
  
         public ActionResult Delete(int id)
         {
-            Form form = db.Forms.Find(id);
+            Form form = (Form)RavenSession.Query<Form>().Where(f => f.Id == id).First();
             return View(form);
         }
 
@@ -105,10 +108,10 @@ namespace formCreator.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            Form form = db.Forms.Find(id);
-            db.Forms.Remove(form);
-            db.SaveChanges();
+        {
+            Form form = (Form)RavenSession.Query<Form>().Where(f => f.Id == id).First();
+            RavenSession.Delete(form);
+            RavenSession.SaveChanges();
             return RedirectToAction("Index");
         }
 
