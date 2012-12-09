@@ -12,15 +12,8 @@
         <h3>Form Items</h3>
 
         <ul>
-            @if (Model.Attributes == null)
-            {
-                foreach (formCreator.Models.Attribute att in Model.Attributes) {
+            @foreach (formCreator.Models.Attribute att in Model.Attributes) {
                     <li>@Html.DisplayFor(a => att.Name)</li>
-                }
-            }
-            else
-            {
-                <li>No form items</li>
             }
         </ul>
 

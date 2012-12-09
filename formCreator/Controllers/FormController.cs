@@ -28,6 +28,20 @@ namespace formCreator.Controllers
         public ViewResult Details(int id)
         {
             Form form = (Form)RavenSession.Query<Form>().Where(f => f.Id == id).First();
+
+            // how can i handle the issue where "attributes" property
+            // was added at a later date, but earlier docs do not have
+            // it? so when you try to access the doc, it throughs a
+            // System.NullException error
+
+            if (form.Attributes == null) {
+                form.Attributes = new List<Models.Attribute>();
+                Models.Attribute blank = new Models.Attribute();
+                blank.Name = "No attributes available";
+                blank.Value = "-1";
+                form.Attributes.Add(blank);
+            }
+
             return View(form);
         }
 
